@@ -2,10 +2,11 @@ from torch.utils.data import Dataset
 import os
 from PIL import Image
 from PIL import ImageFile
+import pillow_avif
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 class ClipSearchDataset(Dataset):
-    def __init__(self, img_dir,  img_ext_list = ['.jpg', '.png', '.jpeg', '.tiff'], preprocess = None):    
+    def __init__(self, img_dir,  img_ext_list = ['.jpg', '.png', '.jpeg', '.tiff', '.avif'], preprocess = None):    
         self.preprocess = preprocess
         self.img_path_list = []
         self.walk_dir(img_dir, img_ext_list)
