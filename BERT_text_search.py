@@ -37,7 +37,7 @@ for label_embedding in label_embeddings:
                          for query_embedding, single_label_embedding in zip(query_embeddings, label_embedding)])
 
 # 求每种池化方式下的最大相似性
-max_similarities = [max(similarity) for similarity in zip(*similarities)]
+max_similarities = [np.max(similarity) for similarity in zip(*similarities)]
 
 # 找到最大相似性对应的标签
 most_similar_labels = [labels[similarities[i].index(max_similarities[i])] for i in range(3)]
